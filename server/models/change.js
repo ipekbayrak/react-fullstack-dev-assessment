@@ -13,12 +13,9 @@ const ChangeSchema = new mongoose.Schema({
     enum: ['value1', 'value2']
   },
   propertyC: {
-    type: Date,
-    required: true
-  },
-  timestamp: {
-    type: Date,
-    default: Date.now
+    type: String,
+    required: true,
+    maxlength: [10, 'PropertyC should be equal to or less than 10 characters long.']
   }
 });
 
