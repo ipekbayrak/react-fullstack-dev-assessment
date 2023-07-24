@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchChanges, deleteChange, deleteAllChanges, setEditChange } from './redux/actions/changesActions';
+import { fetchChanges, deleteChange, deleteAllChanges, setEditChange } from '../redux/actions/changesActions.js';
 import { useNavigate } from 'react-router-dom';
 
 const Viewer = () => {
@@ -22,7 +22,7 @@ const Viewer = () => {
           <p>Property A: {change.propertyA}</p>
           <p>Property B: {change.propertyB}</p>
           <p>Property C: {new Date(change.propertyC).toLocaleDateString()}</p>
-          <button onClick={() => dispatch(deleteChange(change._id))}>Delete</button>
+          <button data-testid='delete' onClick={() => dispatch(deleteChange(change._id))}>Delete</button>
           <button onClick={() => {
             dispatch(setEditChange(change._id));
             navigate('/');

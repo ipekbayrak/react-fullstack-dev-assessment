@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-import Editor from './Editor';
-import Viewer from './Viewer';
+import Editor from './components/Editor.js';
+import Viewer from './components/Viewer';
 
 function App () {
   return (

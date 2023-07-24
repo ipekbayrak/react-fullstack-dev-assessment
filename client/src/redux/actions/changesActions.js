@@ -1,5 +1,3 @@
-// requşre axios
-import axios from 'axios';
 
 export const setChanges = changes => {
   return {
@@ -39,7 +37,7 @@ export const addChange = change => {
 
 export const deleteChange = (id) => async (dispatch) => {
   try {
-    await axios.delete(`http://localhost:8000/ChangeRecord/${id}`);
+    await fetch(`http://localhost:8000/ChangeRecord/${id}`, { method: 'DELETE' });
     dispatch({
       type: 'DELETE_CHANGE',
       payload: id
@@ -51,7 +49,7 @@ export const deleteChange = (id) => async (dispatch) => {
 
 export const deleteAllChanges = () => async (dispatch) => {
   try {
-    await axios.delete('http://localhost:8000/ChangeRecord');
+    await fetch('http://localhost:8000/ChangeRecord', { method: 'DELETE' });
     dispatch({
       type: 'DELETE_ALL_CHANGES'
     });

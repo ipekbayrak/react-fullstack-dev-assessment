@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addChange, updateChange } from './redux/actions/changesActions';
+import { addChange, updateChange } from '../redux/actions/changesActions.js';
 
 const Editor = () => {
   const [propertyA, setPropertyA] = useState(5);
@@ -36,18 +36,18 @@ const Editor = () => {
       <h2>Editor</h2>
       <div>
         <label>Property A: </label>
-        <input type='number' min='5' max='9' value={propertyA} onChange={e => setPropertyA(Number(e.target.value))} />
+        <input data-testid='propertyA' type='number' min='5' max='9' value={propertyA} onChange={e => setPropertyA(Number(e.target.value))} />
       </div>
       <div>
         <label>Property B: </label>
-        <select value={propertyB} onChange={e => setPropertyB(e.target.value)}>
+        <select data-testid='propertyB' value={propertyB} onChange={e => setPropertyB(e.target.value)}>
           <option value='value1'>value1</option>
           <option value='value2'>value2</option>
         </select>
       </div>
       <div>
         <label>Property C: </label>
-        <input type='date' value={propertyC} onChange={e => setPropertyC(e.target.value)} />
+        <input data-testid='propertyC' type='date' value={propertyC} onChange={e => setPropertyC(e.target.value)} />
       </div>
       <button onClick={submitChange}>{isEditing ? 'Update' : 'Submit'}</button>
     </div>
