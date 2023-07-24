@@ -37,56 +37,49 @@ This project follows a progression of steps, starting with creating a basic stru
 ## Setup
 
 1. Go to client directory:
-
-\`\`\`bash
-cd client
-\`\`\`
-
 2. Install dependencies:
 
-\`\`\`bash
+```
+cd client
 npm i
-\`\`\`
+```
 
-3. Go to server directory:
+1. Go to server directory:
+2. Install dependencies:
 
-\`\`\`bash
+```
 cd server
-\`\`\`
-
-4. Install dependencies:
-
-\`\`\`bash
 npm i
-\`\`\`
+```
 
 ## Running the Application
 
 1. Start the client:
 
-\`\`\`bash
+```
 cd client
 npm start
-\`\`\`
+```
 
 2. Start the server:
 
-\`\`\`bash
+```
 cd server
 npm start
-\`\`\`
+```
 
 ## Running the Tests
 
 1. Run the client tests:
 
-\`\`\`bash
+```
+cd client
 npm test
-\`\`\`
+```
 
 2. Run the server tests:
 
-\`\`\`bash
+```
+cd server
 npm test
-\`\`\`
-"""
+```
