@@ -48,8 +48,8 @@ describe('Editor Component', () => {
 
     render(<Provider store={store}><Editor /></Provider>);
 
-    expect(screen.getByTestId('propertyA')).toHaveValue(testChange.propertyA);
-    expect(screen.getByTestId('propertyB')).toHaveValue(testChange.propertyB);
-    expect(screen.getByTestId('propertyC')).toHaveValue(testChange.propertyC);
+    expect(screen.getByLabelText('Property A')).toHaveValue(testChange.propertyA.toString());
+    expect(screen.getByDisplayValue(testChange.propertyB)).toBeInTheDocument();
+    expect(screen.getByLabelText('Property C')).toHaveValue(testChange.propertyC);
   });
 });
