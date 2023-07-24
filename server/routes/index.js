@@ -49,4 +49,20 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    const change = await Change.findById(req.params.id);
+    if (!change) return res.status(404).json({ message: 'No change found' });
+
+    change.propertyA = req.body.propertyA;
+    change.propertyB = req.body.propertyB;
+    change.propertyC = req.body.propertyC;
+
+    const updatedChange = await change.save();
+    res.json(updatedChange);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = router;

@@ -65,7 +65,27 @@ export const setEditChange = (id) => {
   };
 };
 
-export const updateChange = (id, updatedChange) => ({
-  type: 'UPDATE_CHANGE',
-  payload: { id, ...updatedChange }
-});
+export const updateChange = (id, updatedChange) => async (dispatch) => {
+  try {
+    const response = await fetch(`http://localhost:8000/ChangeRecord/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedChange)
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Could not update change.');
+    }
+
+    dispatch({
+      type: 'UPDATE_CHANGE',
+      payload: { id, ...data }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
