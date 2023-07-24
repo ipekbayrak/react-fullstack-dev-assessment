@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button, Container } from '@mui/material';
 import { Box } from '@mui/system';
+import './App.css';
 
 import Editor from './components/Editor.js';
 import Viewer from './components/Viewer';
